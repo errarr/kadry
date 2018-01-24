@@ -159,13 +159,9 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="..\Lib\sqlite3.def">
       <Filter>Pliki źródłowe</Filter>
     </None>
     <None Include="..\Lib\sqlite3.dll" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram3.cd" />
   </ItemGroup>
 </Project>
