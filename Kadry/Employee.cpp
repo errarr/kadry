@@ -33,41 +33,45 @@ void Employee::SetId(int id)
 
 int Employee::GetId()
 {
-	return 0;
+	return id;
 }
 
 void Employee::SetName(string name)
 {
+	this->name = name;
 }
 
 string Employee::GetName()
 {
-	return string();
+	return name;
 }
 
 void Employee::SetSurname(string surname)
 {
+	this->surname = surname;
 }
 
 string Employee::GetSurname()
 {
-	return string();
+	return surname;
 }
 
 void Employee::SetHourlyRate(float hourlyRate)
 {
+	this->hourlyRate = hourlyRate;
 }
 
 float Employee::GetHourlyRate()
 {
-	return 0.0f;
+	return hourlyRate;
 }
 
-void Employee::SetHolidays(string holidays)
+void Employee::SetHolidays(int holidays)
 {
+	this->holidays = holidays;
 }
 
 int Employee::GetHolidays()
 {
-	return 0;
+	return holidays;
 }

@@ -39,7 +39,7 @@ public:
 	string GetSurname();
 	void SetHourlyRate(float hourlyRate);
 	float GetHourlyRate();
-	void SetHolidays(string holidays);
+	void SetHolidays(int holidays);
 	int GetHolidays();
 
 };
