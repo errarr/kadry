@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+  <Class Name="Address">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAACAIIAKAAAACAAAEAAAgACAAAAAAAAAAA=</HashCode>
+      <FileName>Address.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Employee">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAQAAAAEIAAACAIEAAAAAgAAAAAAAgA=</HashCode>
+      <FileName>Employee.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EmployeeDay">
+    <Position X="7" Y="8" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="EmployeeDay::DayType">
+        <TypeIdentifier>
+          <NewMemberFileName>EmployeeDay.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAACAAIAAQAAAAAA=</HashCode>
+      <FileName>EmployeeDay.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EmployeeView">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAIAAAABAAAAEAAAAAABIAAIAAAQAAAggAJA=</HashCode>
+      <FileName>EmployeeView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Position">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Position.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Schedule">
+    <Position X="5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAEAAAAAAAAAAAQCAAAA=</HashCode>
+      <FileName>Schedule.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EmployeeService">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAABIAAABAAAAgAEAAAAAAAAAgAAAAEAAAAAA=</HashCode>
+      <FileName>EmployeeService.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleService">
+    <Position X="2.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAQAAABAAAAAAAQAgAAAAAA=</HashCode>
+      <FileName>ScheduleService.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseRepository" Collapsed="true">
+    <Position X="12.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>BaseRepository.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EmployeeRepository" Collapsed="true">
+    <Position X="5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>EmployeeRepository.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScheduleRepository">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>ScheduleRepository.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

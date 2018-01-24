@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pliki źródłowe">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Pliki zasobów">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Models">
+      <UniqueIdentifier>{2afb0336-e36d-40fd-ab9d-d61593ff4d91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Repositories">
+      <UniqueIdentifier>{5423b4c1-3bee-4bb5-8af8-c37880e5c7a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Services">
+      <UniqueIdentifier>{49286a2e-2669-4adb-914c-5b31438678a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Views">
+      <UniqueIdentifier>{3a7c4c69-f89d-4126-97e5-ec07f140b1a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Models">
+      <UniqueIdentifier>{3123780e-bca0-4160-be85-9ebd1d7ebba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Repositories">
+      <UniqueIdentifier>{34d8b849-6023-4bd1-84c2-936a8eebb431}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Services">
+      <UniqueIdentifier>{0693f7bc-2408-4083-abf7-bab25a84a04a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Views">
+      <UniqueIdentifier>{559d5948-3dff-468e-8742-924b20152b20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Helpers">
+      <UniqueIdentifier>{0a5c5a58-607c-4214-9d96-4162879c0ebb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Helpers">
+      <UniqueIdentifier>{02b491e2-6fe7-436d-8cf4-27ff82ca25b6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Employee.h">
+      <Filter>Pliki nagłówkowe\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Address.h">
+      <Filter>Pliki nagłówkowe\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>Pliki nagłówkowe\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Schedule.h">
+      <Filter>Pliki nagłówkowe\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseRepository.h">
+      <Filter>Pliki nagłówkowe\Repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="EmployeeRepository.h">
+      <Filter>Pliki nagłówkowe\Repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionRepository.h">
+      <Filter>Pliki nagłówkowe\Repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="EmployeeDay.h">
+      <Filter>Pliki nagłówkowe\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="EmployeeService.h">
+      <Filter>Pliki nagłówkowe\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionService.h">
+      <Filter>Pliki nagłówkowe\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="ScheduleService.h">
+      <Filter>Pliki nagłówkowe\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="ScheduleRepository.h">
+      <Filter>Pliki nagłówkowe\Repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="EmployeeView.h">
+      <Filter>Pliki nagłówkowe\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ConversionHelper.h">
+      <Filter>Pliki nagłówkowe\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionView.h">
+      <Filter>Pliki nagłówkowe\Views</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="Address.cpp">
+      <Filter>Pliki źródłowe\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Employee.cpp">
+      <Filter>Pliki źródłowe\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="EmployeeDay.cpp">
+      <Filter>Pliki źródłowe\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseRepository.cpp">
+      <Filter>Pliki źródłowe\Repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="EmployeeRepository.cpp">
+      <Filter>Pliki źródłowe\Repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="EmployeeService.cpp">
+      <Filter>Pliki źródłowe\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="EmployeeView.cpp">
+      <Filter>Pliki źródłowe\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Position.cpp">
+      <Filter>Pliki źródłowe\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="PositionRepository.cpp">
+      <Filter>Pliki źródłowe\Repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="PositionService.cpp">
+      <Filter>Pliki źródłowe\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="Schedule.cpp">
+      <Filter>Pliki źródłowe\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="ScheduleRepository.cpp">
+      <Filter>Pliki źródłowe\Repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="ScheduleService.cpp">
+      <Filter>Pliki źródłowe\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="Kadry.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="ConversionHelper.cpp">
+      <Filter>Pliki źródłowe\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="PositionView.cpp">
+      <Filter>Pliki źródłowe\Views</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Kadry.rc">
+      <Filter>Pliki zasobów</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="..\Lib\sqlite3.def">
+      <Filter>Pliki źródłowe</Filter>
+    </None>
+    <None Include="..\Lib\sqlite3.dll" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
+  </ItemGroup>
+</Project>
