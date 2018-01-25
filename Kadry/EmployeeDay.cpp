@@ -9,8 +9,6 @@ EmployeeDay::~EmployeeDay()
 {
 }
 
-EmployeeDay::EmployeeDay(Employee employee, DayType dayType)
+EmployeeDay::EmployeeDay()
 {
-	this->employee = employee;
-	this->dayType = dayType;
 }

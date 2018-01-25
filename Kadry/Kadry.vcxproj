@@ -155,11 +155,14 @@
   <ItemGroup>
     <ClInclude Include="Address.h" />
     <ClInclude Include="BaseRepository.h" />
+    <ClInclude Include="BaseView.h" />
     <ClInclude Include="ConversionHelper.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="EmployeeDay.h" />
     <ClInclude Include="EmployeeRepository.h" />
     <ClInclude Include="EmployeeView.h" />
+    <ClInclude Include="Enums.h" />
+    <ClInclude Include="MainView.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="PositionRepository.h" />
     <ClInclude Include="PositionService.h" />
@@ -169,18 +172,21 @@
     <ClInclude Include="EmployeeService.h" />
     <ClInclude Include="ScheduleRepository.h" />
     <ClInclude Include="ScheduleService.h" />
+    <ClInclude Include="ScheduleView.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Address.cpp" />
     <ClCompile Include="BaseRepository.cpp" />
+    <ClCompile Include="BaseView.cpp" />
     <ClCompile Include="ConversionHelper.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="EmployeeDay.cpp" />
     <ClCompile Include="EmployeeRepository.cpp" />
     <ClCompile Include="EmployeeView.cpp" />
     <ClCompile Include="Kadry.cpp" />
+    <ClCompile Include="MainView.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="PositionRepository.cpp" />
     <ClCompile Include="PositionService.cpp" />
@@ -189,6 +195,7 @@
     <ClCompile Include="EmployeeService.cpp" />
     <ClCompile Include="ScheduleRepository.cpp" />
     <ClCompile Include="ScheduleService.cpp" />
+    <ClCompile Include="ScheduleView.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

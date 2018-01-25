@@ -1,6 +1,8 @@
 #pragma once
 #include "BaseRepository.h"
 #include "ConversionHelper.h"
+#include <vector>
+#include "Enums.h"
 class EmployeeRepository :
 	public BaseRepository
 {
@@ -18,5 +20,8 @@ public:
 		string buildingNumber,
 		string phoneNumber,
 		string position);
+	bool DeactivateEmployee(int employeeId);
+	float GetEmployeeHourlyRate(int employeeId);
+	vector<string> GetEmployeeWorkingDays(int employeeId, string dateFrom, string dateTo);
 };
 

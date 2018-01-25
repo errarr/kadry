@@ -1,8 +1,23 @@
 #pragma once
-class PositionView
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+#include "PositionService.h"
+#include "BaseView.h"
+using namespace std;
+class PositionView : BaseView
 {
 public:
 	PositionView();
 	~PositionView();
+	void Menu();
+	void Add();
+	void Edit();//TODO walidowac czy istnieje
+	void Delete();
+	void PrintAllPositions();
+
+private:
+	PositionService positionService;
+
 };
 

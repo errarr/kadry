@@ -26,7 +26,7 @@ public:
 		Address address,
 		Position position); //-1 jesli zle
 	bool EditEmployee(int employeeId);
-	bool DeleteEmployee(int employeeId);
+	bool DeactivateEmployee(int employeeId);
 	float CalculateSalary(int employeeId, string dateFrom, string dateTo);
 	vector<Employee> GetAllEmployees();
 	float CalculateSummaricSalary(string dateFrom, string dateTo);
