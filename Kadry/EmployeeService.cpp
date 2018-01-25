@@ -69,7 +69,7 @@ vector<Employee> EmployeeService::GetAllEmployees()
 	}
 	catch (const std::exception&)
 	{
-
+		return vector<Employee>();
 	}
 	
 }
@@ -82,8 +82,24 @@ float EmployeeService::CalculateSummaricSalary(string dateFrom, string dateTo)
 Employee EmployeeService::MapEmployee(vector<string> employeeToMap)
 {
 	Employee employee;
-	employee.SetId(atoi(employeeToMap[0].c_str()));
-	employee.SetName(atoi(employeeToMap[0].c_str()));
-	//TODO reszta metod, adress
+	Address address;
+	Position position;
+
+	employee.SetId(ConversionHelper::StringToInt(employeeToMap[0]));
+	employee.SetName(employeeToMap[1]);
+	employee.SetSurname(employeeToMap[2]);
+	employee.SetHourlyRate(ConversionHelper::StringToFloat(employeeToMap[3]));
+	employee.SetHolidays(ConversionHelper::StringToInt(employeeToMap[4]));
+
+	address.SetTown(employeeToMap[5]);
+	address.SetPostalCode(employeeToMap[6]);
+	address.SetStreet(employeeToMap[7]);
+	address.SetBuildingNumber(employeeToMap[8]);
+	address.SetPhoneNumber(employeeToMap[9]);
+	employee.SetAddress(address);
+
+	position.SetName(employeeToMap[10]);
+	employee.SetPosition(position);
+
 	return employee;
 }

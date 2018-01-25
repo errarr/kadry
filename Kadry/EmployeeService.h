@@ -7,6 +7,7 @@
 #include "Schedule.h"
 #include "Address.h"
 #include <vector>
+#include "ConversionHelper.h"
 //#include "BaseRepository.h"
 #include "EmployeeRepository.h"
 using namespace std;

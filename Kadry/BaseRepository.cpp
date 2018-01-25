@@ -35,6 +35,7 @@ vector<vector<string>> BaseRepository::ExecuteQueryDB(string query)
 	{
 		const char * error = ConversionHelper::StringToChar("SQL error " + query);
 		throw exception(error);
+		delete[] error;
 	}
 	delete[] convertedQuery;
 	queryId = mysql_store_result(&mysql);
