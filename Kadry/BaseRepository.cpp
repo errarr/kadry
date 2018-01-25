@@ -14,7 +14,6 @@ BaseRepository::~BaseRepository()
 void BaseRepository::ConnectDB()
 {
 	mysql_init(&mysql);
-	//TODO przeniesc do resource
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "kadry", "kadry", 3306, NULL, 0);
 	mysql_select_db(&mysql, "kadry");
 }

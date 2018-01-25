@@ -16,7 +16,7 @@ void ScheduleView::Menu()
 	int action;
 	do
 	{
-		//TODO choose action wyswietlenie
+		cout << "\n\n\n---------------------------------------------------------------\n\n\n   ::::HARMONOGRAM MENU::::\n\n\n   Wybierz akcje, ktora chcesz wykonac:\n\n     1. Wyswietl harmonogram.\n     2. Dodaj pracownika do harmonogramu.\n     3. Usun pracownika z harmonogramu.\n     4. Wroc do poprzedniego menu\n\n\n\nWybor: ";
 		cout << "schedule";
 		cin >> action;
 

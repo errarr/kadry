@@ -17,8 +17,8 @@ void EmployeeView::Menu()
 	do
 	{
 
-		//TODO choose action wyswietlenie
-		cout << "employee";
+		
+		cout << "\n\n\n---------------------------------------------------------------\n\n\n   ::::PRACOWNIK MENU::::\n\n\n   Wybierz akcje, ktora chcesz wykonac:\n\n     1. Wyswietl dane wszystkich pracownikow.\n     2. Dodaj pracownika.\n     3. Edytuj pracownika.\n     4. Usun pracownika.\n     5. Wyswietl zarobki wybranego pracownika.\n     6. Wyswietl sume zarobkow wszystkich pracownikow.\n     7. Wroc do poprzedniego menu\n\n\n\nWybor: ";
 		cin >> action;
 
 		switch (action)
@@ -41,7 +41,7 @@ void EmployeeView::Menu()
 		default:
 			break;
 		}
-	} while (action != 5);
+	} while (action != 7);
 
 }
 

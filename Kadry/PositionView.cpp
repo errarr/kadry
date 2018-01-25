@@ -19,8 +19,8 @@ void PositionView::Menu()
 	do
 	{
 		
-		//TODO choose action wyswietlenie
-		cout << "position";
+		
+		cout << "\n\n\n---------------------------------------------------------------\n\n\n   ::::STANOWISKO MENU::::\n\n\n   Wybierz akcje, ktora chcesz wykonac:\n\n     1. Wyswietl wszystkie stanowiska.\n     2. Dodaj stanowisko.\n     3. Edytuj stanowisko.\n     4. Usun stanowisko.\n     5. Wroc do poprzedniego menu\n\n\n\nWybor: ";
 		cin >> action;
 		
 		switch (action)
