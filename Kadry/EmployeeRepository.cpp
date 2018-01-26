@@ -95,3 +95,30 @@ vector<string> EmployeeRepository::GetEmployeeWorkingDays(int employeeId, string
 	return days;
 }
 
+vector<vector<string>> EmployeeRepository::GetEmployeesWorkingDays(string dateFrom, string dateTo)
+{
+	const string query = "SELECT employeeschedule.daytype, employees.hourlyrate FROM employeeschedule LEFT JOIN employees ON employeeschedule.idemployees = employees.idemployees WHERE employeeschedule.idschedules IN (SELECT idschedules FROM schedules WHERE schedules.`date` between STR_TO_DATE('" + dateFrom + "', '%d-%m-%Y') AND STR_TO_DATE('" + dateTo + "', '%d-%m-%Y'))";
+	ConnectDB();
+	vector<vector<string>> result = ExecuteQueryDB(query);
+	DisconnectDB();
+	return result;
+}
+
+bool EmployeeRepository::IsEmployeeActive(int employeeId)
+{
+	const string query = "SELECT idemployees FROM employees WHERE employees.idemployees = "+ ConversionHelper::IntToString(employeeId) +" AND employees.isactive = 1";
+	ConnectDB();
+	vector<vector<string>> result = ExecuteQueryDB(query);
+	DisconnectDB();
+	return !result.empty();
+}
+
+bool EmployeeRepository::IsEmployeeExist(int employeeId)
+{
+	const string query = "SELECT idemployees FROM employees WHERE employees.idemployees = " + ConversionHelper::IntToString(employeeId);
+	ConnectDB();
+	vector<vector<string>> result = ExecuteQueryDB(query);
+	DisconnectDB();
+	return !result.empty();
+}
+

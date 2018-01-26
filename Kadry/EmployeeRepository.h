@@ -23,5 +23,8 @@ public:
 	bool DeactivateEmployee(int employeeId);
 	float GetEmployeeHourlyRate(int employeeId);
 	vector<string> GetEmployeeWorkingDays(int employeeId, string dateFrom, string dateTo);
+	vector<vector<string>> GetEmployeesWorkingDays(string dateFrom, string dateTo);
+	bool IsEmployeeActive(int employeeId);
+	bool IsEmployeeExist(int employeeId);
 };
 

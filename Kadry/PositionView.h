@@ -5,7 +5,7 @@
 #include "PositionService.h"
 #include "BaseView.h"
 using namespace std;
-class PositionView : BaseView
+class PositionView : public BaseView
 {
 public:
 	PositionView();

@@ -15,8 +15,10 @@ public:
 	void Menu();
 
 private:
-	EmployeeView employeeView;
+	/*EmployeeView employeeView;
 	PositionView positionView;
-	ScheduleView scheduleView;
+	ScheduleView scheduleView;*/
+	BaseView *view;
+
 };
 

@@ -33,7 +33,7 @@ int EmployeeService::AddEmployee(
 			address.GetPhoneNumber(),
 			position.GetName());
 	}
-	catch (const std::exception&)
+	catch (const std::exception& ex)
 	{
 		return -1;
 	}
@@ -51,7 +51,7 @@ bool EmployeeService::DeactivateEmployee(int employeeId)
 		employeeRepository.DeactivateEmployee(employeeId);
 		return true;
 	}
-	catch (const std::exception&)
+	catch (const std::exception& ex)
 	{
 		return false;
 	}
@@ -60,10 +60,7 @@ bool EmployeeService::DeactivateEmployee(int employeeId)
 
 float EmployeeService::CalculateSalary(int employeeId, string dateFrom, string dateTo)
 {
-	const float WORKRATE = 1;
-	const float HOLIDAYRATE = 1;
-	const float SICKRATE = 0.8;
-	const float SHIFT = 8;
+
 	try
 	{
 		float hourlyRate = employeeRepository.GetEmployeeHourlyRate(employeeId);
@@ -72,25 +69,27 @@ float EmployeeService::CalculateSalary(int employeeId, string dateFrom, string d
 		for (int i = 0; i < workingDays.size(); i++)
 		{
 			DayType dayType = (DayType)(ConversionHelper::StringToInt(workingDays[i]));
-			switch (dayType)
-			{
-			case Work: salary += hourlyRate * SHIFT * WORKRATE;
-				break;
-			case Holiday: salary += hourlyRate * SHIFT * HOLIDAYRATE;
-				break;
-			case Sick: salary += hourlyRate * SHIFT * SICKRATE;
-				break;
-			default:
-				break;
-			}
+			CalculateSalaryForDay(dayType, salary, hourlyRate);
 		}
 		return salary;
 	}
-	catch (const std::exception&)
+	catch (const std::exception& ex)
 	{
 		return -1;
 	}
 	
+}
+
+bool EmployeeService::IsEmployeeExist(int employeeId)
+{
+	try
+	{
+		return employeeRepository.IsEmployeeExist(employeeId);
+	}
+	catch (const std::exception& ex)
+	{
+		return false;
+	}
 }
 
 vector<Employee> EmployeeService::GetAllEmployees()
@@ -106,7 +105,7 @@ vector<Employee> EmployeeService::GetAllEmployees()
 		}
 		return employees;
 	}
-	catch (const std::exception&)
+	catch (const std::exception& ex)
 	{
 		return vector<Employee>();
 	}
@@ -115,7 +114,38 @@ vector<Employee> EmployeeService::GetAllEmployees()
 
 float EmployeeService::CalculateSummaricSalary(string dateFrom, string dateTo)
 {
-	return 0.0f;
+	try
+	{
+		vector<vector<string>> dayTypeSalaries = employeeRepository.GetEmployeesWorkingDays(dateFrom, dateTo);
+		float salary = 0;
+		for (int i = 0; i < dayTypeSalaries.size(); i++)
+		{
+			vector<string> dayTypeSalary = dayTypeSalaries[i];
+			DayType dayType = (DayType)(ConversionHelper::StringToInt(dayTypeSalary[0]));
+			float hourlyRate = ConversionHelper::StringToFloat(dayTypeSalary[1]);
+
+			CalculateSalaryForDay(dayType, salary, hourlyRate);
+		}
+		return salary;
+	}
+	catch (const std::exception& ex)
+	{
+		return -1;
+	}
+}
+void EmployeeService::CalculateSalaryForDay(DayType dayType, float &salary, float hourlyRate)
+{
+	switch (dayType)
+	{
+	case Work: salary += hourlyRate * SHIFT * WORKRATE;
+		break;
+	case Holiday: salary += hourlyRate * SHIFT * HOLIDAYRATE;
+		break;
+	case Sick: salary += hourlyRate * SHIFT * SICKRATE;
+		break;
+	default:
+		break;
+	}
 }
 
 Employee EmployeeService::MapEmployee(vector<string> employeeToMap)

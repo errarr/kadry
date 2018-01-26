@@ -20,7 +20,7 @@ Schedule ScheduleService::GetSchedule(string date)
 		vector<vector<string>> scheduleVector = scheduleRepository.GetSchedule(date);
 		schedule.employeeDays = MapEmployeDay(scheduleVector);
 	}
-	catch (const std::exception&)
+	catch (const std::exception& ex)
 	{
 	}
 	return schedule;
@@ -33,7 +33,7 @@ bool ScheduleService::AddEmployeeToSchedule(int employeeId, string date, DayType
 		scheduleRepository.AddEmployeeToSchedule(employeeId, date, dayType);
 		return true;
 	}
-	catch (const std::exception&)
+	catch (const std::exception& ex)
 	{
 		return false;
 	}
@@ -47,11 +47,23 @@ bool ScheduleService::DeleteEmployeeFromSchedule(int employeeId, string date)
 		scheduleRepository.DeleteEmployeeFromSchedule(employeeId, date);
 		return true;
 	}
-	catch (const std::exception&)
+	catch (const std::exception& ex)
 	{
 		return false;
 	}
 	
+}
+
+bool ScheduleService::IsEmployeeActive(int employeeId)
+{
+	try
+	{
+		return employeeRepository.IsEmployeeActive(employeeId);
+	}
+	catch (const std::exception& ex)
+	{
+		return false;
+	}
 }
 
 vector<EmployeeDay> ScheduleService::MapEmployeDay(vector<vector<string>> schedule)

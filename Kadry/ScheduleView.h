@@ -5,7 +5,7 @@
 #include <iostream>
 #include "ScheduleService.h"
 using namespace std;
-class ScheduleView : BaseView
+class ScheduleView : public BaseView
 {
 public:
 	ScheduleView();

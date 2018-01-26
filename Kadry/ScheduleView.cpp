@@ -54,12 +54,55 @@ void ScheduleView::PrintSchedule()
 
 void ScheduleView::AddEmployeeToSchedule()
 {
-	cout << "Podaj dane";
-	//TODO dokonczyc
-	//cin >> dane; 
-	//scheduleService.AddEmployeeToSchedule(employeeId, date, dayType);
+	int employeeId;
+	int dayType;
+	string date;
+	bool isAdded = false;
+	do
+	{
+
+		cout << "Podaj ID pracownika: ";
+		cin >> employeeId;
+		if (scheduleService.IsEmployeeActive(employeeId))
+		{
+			cout << "Podaj date (DD-MM-RRRR): ";
+			cin >> date;
+			cout << "Podaj typ dnia (1 - Praca, 2 - Urlop platny, 3 - chorobowe. Urlopu bezplatnego nie wprowadzamy do harmonogramu!): ";
+			cin >> dayType;
+			isAdded = scheduleService.AddEmployeeToSchedule(employeeId, date, (DayType)dayType);
+			if (isAdded)
+			{
+				cout << "Dodano pracownika do harmonogramu!\n";
+			}
+			else
+			{
+				cout << "Wystapil blad przy dodawaniu pracownika do harmonogramu! \n";
+			}
+		}
+		else
+		{
+			cout << "Wybrany pracownik nie jest aktywny!\n";
+		}
+	} while (isAdded);
 }
 
 void ScheduleView::DeleteEmployeeFromSchedule()
 {
+	int employeeId;
+	string date;
+
+	cout << "Podaj ID pracownika: ";
+	cin >> employeeId;
+	cout << "Podaj date (DD-MM-RRRR): ";
+	cin >> date;
+
+	bool isDeleted = scheduleService.DeleteEmployeeFromSchedule(employeeId, date);
+	if (isDeleted)
+	{
+		cout << "Usunieto pracownika z harmonogramu!\n";
+	}
+	else
+	{
+		cout << "Wystapil blad przy usuwaniu pracownika z harmonogramu! \n";
+	}
 }

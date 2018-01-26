@@ -2,6 +2,6 @@
 class BaseView
 {
 public:
-	virtual void Menu() = 0;
+	virtual void Menu()=0;
 };
 

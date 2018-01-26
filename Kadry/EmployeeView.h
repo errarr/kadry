@@ -3,12 +3,11 @@
 #include "EmployeeService.h"
 #include "ScheduleService.h"
 #include "BaseView.h"
-class EmployeeView : BaseView
+class EmployeeView : public BaseView
 {
 public:
 	EmployeeView();
 	~EmployeeView();
-	
 	void Menu();
 	void PrintEmployeeDetails ();
 	void AddEmployee();
@@ -18,7 +17,6 @@ public:
 	void PrintAllEmployeesSummaricSalary();
 	void PrintAllEmployees();
 private:
-	//TODO stworzyc i wywalic seriwsy (konstruktor/destruktor)
 	EmployeeService employeeService;
 	ScheduleService scheduleService;
 };

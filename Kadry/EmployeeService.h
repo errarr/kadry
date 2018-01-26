@@ -27,12 +27,18 @@ public:
 		Position position); //-1 jesli zle
 	bool EditEmployee(int employeeId);
 	bool DeactivateEmployee(int employeeId);
-	float CalculateSalary(int employeeId, string dateFrom, string dateTo);
 	vector<Employee> GetAllEmployees();
 	float CalculateSummaricSalary(string dateFrom, string dateTo);
+	float CalculateSalary(int employeeId, string dateFrom, string dateTo);
+	bool IsEmployeeExist(int employeeId);
 
 private:
+	const float WORKRATE = 1;
+	const float HOLIDAYRATE = 1;
+	const float SICKRATE = 0.8;
+	const float SHIFT = 8;
 	EmployeeRepository employeeRepository;
 	Employee MapEmployee(vector<string> employeeToMap);
+	void CalculateSalaryForDay(DayType dayType, float &salary, float hourlyRate);
 };
 

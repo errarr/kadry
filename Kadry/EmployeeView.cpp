@@ -13,14 +13,15 @@ EmployeeView::~EmployeeView()
 
 void EmployeeView::Menu()
 {
+	
 	int action;
 	do
 	{
-
+		
 		
 		cout << "\n\n\n---------------------------------------------------------------\n\n\n   ::::PRACOWNIK MENU::::\n\n\n   Wybierz akcje, ktora chcesz wykonac:\n\n     1. Wyswietl dane wszystkich pracownikow.\n     2. Dodaj pracownika.\n     3. Edytuj pracownika.\n     4. Usun pracownika.\n     5. Wyswietl zarobki wybranego pracownika.\n     6. Wyswietl sume zarobkow wszystkich pracownikow.\n     7. Wroc do poprzedniego menu\n\n\n\nWybor: ";
 		cin >> action;
-
+		system("cls");
 		switch (action)
 		{
 		case 1:
@@ -34,13 +35,19 @@ void EmployeeView::Menu()
 			break;
 		case 4:
 			DeleteEmployee();
+			break;
 		case 5:
 			PrintEmployeeSalary();
+			break;
 		case 6:
 			PrintAllEmployeesSummaricSalary();
+			break;
 		default:
 			break;
 		}
+
+		system("pause");
+		//system("cls");
 	} while (action != 7);
 
 }
@@ -81,10 +88,50 @@ void EmployeeView::DeleteEmployee()
 
 void EmployeeView::PrintEmployeeSalary()
 {
+
+	int employeeId;
+	string dateFrom, dateTo;
+	do
+	{
+		cout << "\nPodaj id pracownika, dla ktorego chcesz wyliczyc wynagrodzenie: ";
+		cin >> employeeId;
+		if (employeeService.IsEmployeeExist(employeeId))
+		{
+			cout << "\nPodaj date poczatkowa w formacie DD-MM-RRRR: ";
+			cin >> dateFrom;
+			cout << "\nPodaj date koncowa w formacie DD-MM-RRRR: ";
+			cin >> dateTo;
+			float calculatedSalary = employeeService.CalculateSalary(employeeId, dateFrom, dateTo);
+			if (calculatedSalary == -1)
+			{
+				cout << "\nNie udalo sie obliczyc wyplaty dla pracownika o id " << employeeId;
+			}
+			else
+			{
+				cout << "\nPracownik o id = " << employeeId << " w podanym przedziale czasowym zarobil " << calculatedSalary;
+			}
+
+			break;
+		}
+		else
+		{
+			cout << "Pracownik o podanym ID nie istnieje.\n";
+		}
+	} while (true);
 }
 
 void EmployeeView::PrintAllEmployeesSummaricSalary()
 {
+	string dateFrom, dateTo;
+	cout << "\nPodaj date poczatkowa w formacie DD-MM-RRRR: ";
+	cin >> dateFrom;
+	cout << "\nPodaj date koncowa w formacie DD-MM-RRRR: ";
+	cin >> dateTo;
+	float calculatedSalary = employeeService.CalculateSummaricSalary(dateFrom, dateTo);
+	if (calculatedSalary == -1)
+		cout << "\nNie udalo sie wyliczyc sumy wyplat w podanym okresie";
+	else
+		cout << "\nSuma wyplat w podanym okresie to " << calculatedSalary;
 }
 
 void EmployeeView::PrintAllEmployees()
@@ -94,6 +141,7 @@ void EmployeeView::PrintAllEmployees()
 	{
 		//TODO dopisac reszte danych
 		cout << allEmployees[i].GetId() << " " << allEmployees[i].GetName() << " " << allEmployees[i].GetSurname() << "\n";
+
 	}
 
 }
