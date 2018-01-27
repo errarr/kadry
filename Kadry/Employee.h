@@ -41,9 +41,6 @@ public:
 	float GetHourlyRate();
 	void SetHolidays(int holidays);
 	int GetHolidays();
-	void SetAddress(Address address);
-	Address GetAddress();
-	void SetPosition(Position position);
-	Position GetPosition();
+
 };
 

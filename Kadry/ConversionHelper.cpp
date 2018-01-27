@@ -30,8 +30,3 @@ int ConversionHelper::StringToInt(string text)
 {
 	return atoi(StringToChar(text));
 }
-
-float ConversionHelper::StringToFloat(string text)
-{
-	return atof(StringToChar(text));
-}

@@ -1,5 +1,5 @@
 #pragma once
-#include <string>
+#include <string.h>
 #include <stdio.h>
 #include <iostream>
 #include <vector>
@@ -14,8 +14,10 @@ public:
 	~Schedule();
 
 
-//private: dopisac setter/getter
+private:
 	string date;
-	vector<EmployeeDay> employeeDays;
+	
+public://TODO dodac wsk
+	EmployeeDay* employeeDays;
 };
 

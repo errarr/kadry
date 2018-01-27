@@ -15,7 +15,7 @@ bool PositionRepository::Add(string name)
 {
 	string query = "INSERT INTO positions (name) VALUES ('" + name + "')";
 	vector<string> positionNames;
-	ConnectDB();
+	ConnectDB();//TODO sparametryzowac query
 	ExecuteQueryDB(query);
 	DisconnectDB();
 	return true;
@@ -26,7 +26,7 @@ bool PositionRepository::Update(string name, string newName)
 {
 	string query = "UPDATE positions SET name ='" + newName + "' WHERE name = '" + name +"'";
 	vector<string> positionNames;
-	ConnectDB();
+	ConnectDB();//TODO sparametryzowac query
 	ExecuteQueryDB(query);
 	DisconnectDB();
 	return true;
@@ -37,7 +37,7 @@ bool PositionRepository::Delete(string name)
 {
 	string query = "DELETE FROM positions WHERE name='" + name + "'";
 	vector<string> positionNames;
-	ConnectDB();
+	ConnectDB();//TODO sparametryzowac query
 	ExecuteQueryDB(query);
 	DisconnectDB();
 	return true;
