@@ -75,22 +75,3 @@ int Employee::GetHolidays()
 {
 	return holidays;
 }
-
-void Employee::SetAddress(Address address)
-{
-	this->address = address;
-}
-
-Address Employee::GetAddress()
-{
-	return address;
-}
-
-void Employee::SetPosition(Position position)
-{
-	this->position = position;
-}
-Position Employee::GetPosition()
-{
-	return position;
-}

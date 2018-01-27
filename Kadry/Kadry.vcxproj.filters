@@ -99,18 +99,6 @@
     <ClInclude Include="PositionView.h">
       <Filter>Pliki nagłówkowe\Views</Filter>
     </ClInclude>
-    <ClInclude Include="MainView.h">
-      <Filter>Pliki nagłówkowe\Views</Filter>
-    </ClInclude>
-    <ClInclude Include="ScheduleView.h">
-      <Filter>Pliki nagłówkowe\Views</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseView.h">
-      <Filter>Pliki nagłówkowe\Views</Filter>
-    </ClInclude>
-    <ClInclude Include="Enums.h">
-      <Filter>Pliki nagłówkowe\Models</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -162,15 +150,6 @@
       <Filter>Pliki źródłowe\Helpers</Filter>
     </ClCompile>
     <ClCompile Include="PositionView.cpp">
-      <Filter>Pliki źródłowe\Views</Filter>
-    </ClCompile>
-    <ClCompile Include="MainView.cpp">
-      <Filter>Pliki źródłowe\Views</Filter>
-    </ClCompile>
-    <ClCompile Include="ScheduleView.cpp">
-      <Filter>Pliki źródłowe\Views</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseView.cpp">
       <Filter>Pliki źródłowe\Views</Filter>
     </ClCompile>
   </ItemGroup>
