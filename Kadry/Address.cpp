@@ -66,7 +66,7 @@ string Address::GetBuildingNumber()
 
 void Address::SetPhoneNumber(string phoneNumber)
 {
-	this->phoneNumber;
+	this->phoneNumber = phoneNumber;
 }
 
 string Address::GetPhoneNumber()

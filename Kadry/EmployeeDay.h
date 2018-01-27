@@ -3,17 +3,26 @@
 #include <string.h>
 #include <stdio.h>
 #include <iostream>
+#include "Enums.h"
 using namespace std;
 
 class EmployeeDay
 {
 public:
-	enum DayType { Work = 1, Holiday = 2, Sick = 3 };
-	Employee employee;
-	EmployeeDay(Employee, DayType);
+	EmployeeDay();
 	~EmployeeDay();
-	
+	void SetDayType(DayType dayType);
+	DayType GetDayType();
+	void SetEmployeeId(int employeeId);
+	int GetEmployeeId();
+	void SetName(string name);
+	string GetName();
+	void SetSurname(string surname);
+	string GetSurname();
+
 private:
 	DayType dayType;
+	int employeeId;
+	string name, surname;
 };
 

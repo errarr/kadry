@@ -14,7 +14,6 @@ BaseRepository::~BaseRepository()
 void BaseRepository::ConnectDB()
 {
 	mysql_init(&mysql);
-	//TODO przeniesc do resource
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "kadry", "kadry", 3306, NULL, 0);
 	mysql_select_db(&mysql, "kadry");
 }
@@ -35,6 +34,7 @@ vector<vector<string>> BaseRepository::ExecuteQueryDB(string query)
 	{
 		const char * error = ConversionHelper::StringToChar("SQL error " + query);
 		throw exception(error);
+		delete[] error;
 	}
 	delete[] convertedQuery;
 	queryId = mysql_store_result(&mysql);

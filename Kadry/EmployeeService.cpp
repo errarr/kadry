@@ -12,46 +12,76 @@ EmployeeService::~EmployeeService()
 }
 
 
-int EmployeeService::AddEmployee(
-	string name,
-	string surname,
-	float hourlyRate,
-	int holidays,
-	Address address,
-	Position position)
+int EmployeeService::AddEmployee(string name, string surname, float hourlyRate, int holidays, Address address, Position position)
 {
 	try
 	{
-	 return employeeRepository.AddEmployee(name,
-			surname,
-			hourlyRate,
-			holidays,
-			address.GetTown(),
-			address.GetStreet(),
-			address.GetPostalCode(),
-			address.GetBuildingNumber(),
-			address.GetPhoneNumber(),
-			position.GetName());
+	 return employeeRepository.AddEmployee(name, surname, hourlyRate, holidays, address.GetTown(), address.GetStreet(), address.GetPostalCode(), address.GetBuildingNumber(), address.GetPhoneNumber(), position.GetName());
 	}
-	catch (const std::exception&)
+	catch (const std::exception& ex)
 	{
 		return -1;
 	}
 }
-//TODO do przemyslenia
-bool EmployeeService::EditEmployee(int employeeId)
+
+bool EmployeeService::EditEmployee(int employeeId, string name, string surname, float hourlyRate, int holidays, Address address, Position position)
 {
-	return false;
+	try
+	{
+		return employeeRepository.EditEmployee(employeeId, name, surname, hourlyRate, holidays, address.GetTown(), address.GetStreet(), address.GetPostalCode(), address.GetBuildingNumber(), address.GetPhoneNumber(), position.GetName());
+	}
+	catch (const std::exception& ex)
+	{
+		return false;
+	}
 }
 
-bool EmployeeService::DeleteEmployee(int employeeId)
+bool EmployeeService::DeactivateEmployee(int employeeId)
 {
-	return false;
+	try
+	{
+		employeeRepository.DeactivateEmployee(employeeId);
+		return true;
+	}
+	catch (const std::exception& ex)
+	{
+		return false;
+	}
+	
 }
 
 float EmployeeService::CalculateSalary(int employeeId, string dateFrom, string dateTo)
 {
-	return 0.0f;
+
+	try
+	{
+		float hourlyRate = employeeRepository.GetEmployeeHourlyRate(employeeId);
+		float salary = 0;
+		vector<string> workingDays = employeeRepository.GetEmployeeWorkingDays(employeeId, dateFrom, dateTo);
+		for (int i = 0; i < workingDays.size(); i++)
+		{
+			DayType dayType = (DayType)(ConversionHelper::StringToInt(workingDays[i]));
+			CalculateSalaryForDay(dayType, salary, hourlyRate);
+		}
+		return salary;
+	}
+	catch (const std::exception& ex)
+	{
+		return -1;
+	}
+	
+}
+
+bool EmployeeService::IsEmployeeExist(int employeeId)
+{
+	try
+	{
+		return employeeRepository.IsEmployeeExist(employeeId);
+	}
+	catch (const std::exception& ex)
+	{
+		return false;
+	}
 }
 
 vector<Employee> EmployeeService::GetAllEmployees()
@@ -67,23 +97,70 @@ vector<Employee> EmployeeService::GetAllEmployees()
 		}
 		return employees;
 	}
-	catch (const std::exception&)
+	catch (const std::exception& ex)
 	{
-
+		return vector<Employee>();
 	}
 	
 }
 
 float EmployeeService::CalculateSummaricSalary(string dateFrom, string dateTo)
 {
-	return 0.0f;
+	try
+	{
+		vector<vector<string>> dayTypeSalaries = employeeRepository.GetEmployeesWorkingDays(dateFrom, dateTo);
+		float salary = 0;
+		for (int i = 0; i < dayTypeSalaries.size(); i++)
+		{
+			vector<string> dayTypeSalary = dayTypeSalaries[i];
+			DayType dayType = (DayType)(ConversionHelper::StringToInt(dayTypeSalary[0]));
+			float hourlyRate = ConversionHelper::StringToFloat(dayTypeSalary[1]);
+
+			CalculateSalaryForDay(dayType, salary, hourlyRate);
+		}
+		return salary;
+	}
+	catch (const std::exception& ex)
+	{
+		return -1;
+	}
+}
+void EmployeeService::CalculateSalaryForDay(DayType dayType, float &salary, float hourlyRate)
+{
+	switch (dayType)
+	{
+	case Work: salary += hourlyRate * SHIFT * WORKRATE;
+		break;
+	case Holiday: salary += hourlyRate * SHIFT * HOLIDAYRATE;
+		break;
+	case Sick: salary += hourlyRate * SHIFT * SICKRATE;
+		break;
+	default:
+		break;
+	}
 }
 
 Employee EmployeeService::MapEmployee(vector<string> employeeToMap)
 {
 	Employee employee;
-	employee.SetId(atoi(employeeToMap[0].c_str()));
-	employee.SetName(atoi(employeeToMap[0].c_str()));
-	//TODO reszta metod, adress
+	Address address;
+	Position position;
+
+	employee.SetId(ConversionHelper::StringToInt(employeeToMap[0]));
+	employee.SetName(employeeToMap[1]);
+	employee.SetSurname(employeeToMap[2]);
+	employee.SetHourlyRate(ConversionHelper::StringToFloat(employeeToMap[3]));
+	employee.SetHolidays(ConversionHelper::StringToInt(employeeToMap[4]));
+
+	address.SetTown(employeeToMap[5]);
+	address.SetPostalCode(employeeToMap[6]);
+	address.SetStreet(employeeToMap[7]);
+	address.SetBuildingNumber(employeeToMap[8]);
+	address.SetPhoneNumber(employeeToMap[9]);
+	employee.SetAddress(address);
+
+	position.SetName(employeeToMap[10]);
+	employee.SetPosition(position);
+
 	return employee;
 }
