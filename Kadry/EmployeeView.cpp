@@ -53,19 +53,121 @@ void EmployeeView::Menu()
 }
 
 
-void EmployeeView::PrintEmployeeDetails()
-{
-	//TODO jak bedzie trza
-}
+
 
 
 void EmployeeView::AddEmployee()
 {
+	string name, surname;
+	float hourlyRate;
+	int holidays;
+	Address address;
+	Position position;
+	string positionName;
+	string street;
+	string buildingNumber;
+	string postalCode;
+	string town;
+	string phoneNumber;
 
+	cout << "Podaj dane nowego pracownika.\n\nImie: ";
+	cin >> name;
+	cout << "Nazwisko: ";
+	cin >> surname;
+	cout << "Stawke godzinowa: ";
+	cin >> hourlyRate;
+	cout << "Ilosc dni urlopowych: ";
+	cin >> holidays;
+
+	cout << "Wybierz stanowisko. Oto dostepne mozliwosci: \n";
+	positionView.PrintAllPositions();
+	cout << "Stanowisko: ";
+	cin >> positionName;
+	position.SetName(positionName);
+
+	cout << "Podaj adres pracownika.\n Ulica: ";
+	cin >> street;
+	cout << "Numer budynku/mieszkania: ";
+	cin >> buildingNumber;
+	cout << "Kod pocztowy: ";
+	cin >> postalCode;
+	cout << "Miasto: ";
+	cin >> town;
+	cout << "Numer telefonu";
+	cin >> phoneNumber;
+	address.SetStreet(street);
+	address.SetBuildingNumber(buildingNumber);
+	address.SetPostalCode(postalCode);
+	address.SetTown(town);
+	address.SetPhoneNumber(phoneNumber);
+	
+	int isAdded = employeeService.AddEmployee(name, surname, hourlyRate, holidays, address, position);
+	if (isAdded != -1)
+	{
+		cout << "Dodano pracownika. Jego ID to " << isAdded;
+	}
+	else
+	{
+		cout << "Wystapil blad przy tworzeniu pracownika.";
+	}
 }
 
 void EmployeeView::EditEmployee()
 {
+	cout << "Podaj numer pracownika, ktorego chcesz edytowac: ";
+	int employeeId;
+	cin >> employeeId;
+	string name, surname;
+	float hourlyRate;
+	int holidays;
+	Address address;
+	Position position;
+	string positionName;
+	string street;
+	string buildingNumber;
+	string postalCode;
+	string town;
+	string phoneNumber;
+
+	cout << "Podaj nowe dane pracownika.\n\nImie: ";
+	cin >> name;
+	cout << "Nazwisko: ";
+	cin >> surname;
+	cout << "Stawke godzinowa: ";
+	cin >> hourlyRate;
+	cout << "Ilosc dni urlopowych: ";
+	cin >> holidays;
+
+	cout << "Wybierz nowe stanowisko. Oto dostepne mozliwosci: \n";
+	positionView.PrintAllPositions();
+	cout << "Stanowisko: ";
+	cin >> positionName;
+	position.SetName(positionName);
+
+	cout << "Podaj nowy adres pracownika.\n Ulica: ";
+	cin >> street;
+	cout << "Numer budynku/mieszkania: ";
+	cin >> buildingNumber;
+	cout << "Kod pocztowy: ";
+	cin >> postalCode;
+	cout << "Miasto: ";
+	cin >> town;
+	cout << "Numer telefonu";
+	cin >> phoneNumber;
+	address.SetStreet(street);
+	address.SetBuildingNumber(buildingNumber);
+	address.SetPostalCode(postalCode);
+	address.SetTown(town);
+	address.SetPhoneNumber(phoneNumber);
+	bool isEdited = employeeService.EditEmployee(employeeId, name, surname, hourlyRate, holidays, address, position);
+	if (isEdited)
+	{
+		cout << "Wyedytowano pracownika.";
+	}
+	else
+	{
+		cout << "Wystapil blad przy edycji pracownika.";
+	}
 }
 
 void EmployeeView::DeleteEmployee()
@@ -76,11 +178,11 @@ void EmployeeView::DeleteEmployee()
 	bool isDeleted = employeeService.DeactivateEmployee(employeeId);
 	if (isDeleted)
 	{
-		cout << "Usunieto";
+		cout << "Usunieto pracownika.";
 	}
 	else
 	{
-		cout << "ni chuja";
+		cout << "Wystapil blad przy usuwaniu pracownika.";
 	}
 }
 
@@ -137,10 +239,10 @@ void EmployeeView::PrintAllEmployeesSummaricSalary()
 void EmployeeView::PrintAllEmployees()
 {
 	vector<Employee> allEmployees = employeeService.GetAllEmployees();
+	cout << "ID | Imie | Nazwisko | Stanowisko | Stawka godzinowa | Ulica  Nr domu | Kod pocztowy  Miasto | Telefon\n";
 	for (int i = 0; i < allEmployees.size(); i++)
 	{
-		//TODO dopisac reszte danych
-		cout << allEmployees[i].GetId() << " " << allEmployees[i].GetName() << " " << allEmployees[i].GetSurname() << "\n";
+		cout << allEmployees[i].GetId() << " | " << allEmployees[i].GetName() << " | " << allEmployees[i].GetSurname() << " | " << allEmployees[i].GetPosition().GetName() << " | " << allEmployees[i].GetHourlyRate() <<" zl | " << allEmployees[i].GetAddress().GetStreet() << " " << allEmployees[i].GetAddress().GetBuildingNumber() << " | " << allEmployees[i].GetAddress().GetPostalCode() << " " << allEmployees[i].GetAddress().GetTown() << " | " << allEmployees[i].GetAddress().GetPhoneNumber() << "\n";
 
 	}
 

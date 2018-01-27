@@ -47,7 +47,8 @@ void ScheduleView::PrintSchedule()
 	for (int i = 0; i < schedule.employeeDays.size(); i++)
 	{
 		EmployeeDay employeeDay = schedule.employeeDays[i];
-		cout << employeeDay.employeeId << endl; //TODO dokonczyc wypisywanie
+		cout << "ID | Imie | Nazwisko | Typ dnia (1 - Praca, 2 - Urlop platny, 3 - Chorobowe)\n";
+		cout << employeeDay.GetEmployeeId() << " " << employeeDay.GetName() << " " << employeeDay.GetSurname() << " " << employeeDay.GetDayType() << endl;
 	}
 
 }
@@ -67,7 +68,7 @@ void ScheduleView::AddEmployeeToSchedule()
 		{
 			cout << "Podaj date (DD-MM-RRRR): ";
 			cin >> date;
-			cout << "Podaj typ dnia (1 - Praca, 2 - Urlop platny, 3 - chorobowe. Urlopu bezplatnego nie wprowadzamy do harmonogramu!): ";
+			cout << "Podaj typ dnia (1 - Praca, 2 - Urlop platny, 3 - Chorobowe. Urlopu bezplatnego nie wprowadzamy do harmonogramu!): ";
 			cin >> dayType;
 			isAdded = scheduleService.AddEmployeeToSchedule(employeeId, date, (DayType)dayType);
 			if (isAdded)

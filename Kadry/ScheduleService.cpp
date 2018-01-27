@@ -73,10 +73,10 @@ vector<EmployeeDay> ScheduleService::MapEmployeDay(vector<vector<string>> schedu
 	{
 		vector<string> row = schedule[i];
 		EmployeeDay employeeDay;
-		employeeDay.employeeId = ConversionHelper::StringToInt(row[0]);
-		employeeDay.name = row[1];
-		employeeDay.surname = row[2];
-		employeeDay.dayType = (DayType)ConversionHelper::StringToInt(row[3]);
+		employeeDay.SetEmployeeId(ConversionHelper::StringToInt(row[0]));
+		employeeDay.SetName(row[1]);
+		employeeDay.SetSurname(row[2]);
+		employeeDay.SetDayType((DayType)ConversionHelper::StringToInt(row[3]));
 		employeeDays.push_back(employeeDay);
 	}
 	return employeeDays;

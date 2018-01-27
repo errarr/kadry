@@ -12,7 +12,7 @@ public:
 	~PositionView();
 	void Menu();
 	void Add();
-	void Edit();//TODO walidowac czy istnieje
+	void Edit();
 	void Delete();
 	void PrintAllPositions();
 

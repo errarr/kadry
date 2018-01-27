@@ -10,16 +10,8 @@ public:
 	EmployeeRepository();
 	~EmployeeRepository();
 	vector<vector<string>> GetAllEmployees();
-	int AddEmployee(string name,
-		string surname,
-		float hourlyRate,
-		int holidays,
-		string town,
-		string street,
-		string postalCode,
-		string buildingNumber,
-		string phoneNumber,
-		string position);
+	int AddEmployee(string name, string surname, float hourlyRate, int holidays, string town, string street, string postalCode, string buildingNumber, string phoneNumber, string position);
+	bool EditEmployee(int employeeId, string name, string surname, float hourlyRate, int holidays, string town, string street, string postalCode, string buildingNumber, string phoneNumber, string position);
 	bool DeactivateEmployee(int employeeId);
 	float GetEmployeeHourlyRate(int employeeId);
 	vector<string> GetEmployeeWorkingDays(int employeeId, string dateFrom, string dateTo);

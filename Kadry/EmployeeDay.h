@@ -11,9 +11,16 @@ class EmployeeDay
 public:
 	EmployeeDay();
 	~EmployeeDay();
-	
-//TODO zrobic settery/gettery, odkomentowac priveate
-//private:
+	void SetDayType(DayType dayType);
+	DayType GetDayType();
+	void SetEmployeeId(int employeeId);
+	int GetEmployeeId();
+	void SetName(string name);
+	string GetName();
+	void SetSurname(string surname);
+	string GetSurname();
+
+private:
 	DayType dayType;
 	int employeeId;
 	string name, surname;

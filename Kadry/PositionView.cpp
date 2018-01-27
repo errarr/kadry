@@ -51,11 +51,11 @@ void PositionView::Add()
 	cin >> newPositionName;
 	if (positionService.Add(newPositionName))
 	{
-		cout << "Dodano";
+		cout << "Dodano pozycje.";
 	}
 	else
 	{
-		cout << "Cos jeblo";
+		cout << "Blad podczas dodawania pozycji.";
 	}
 	
 }
@@ -69,11 +69,11 @@ void PositionView::Edit()
 	cin >> newPositionName;
 	if (positionService.Edit(oldPositionName, newPositionName))
 	{
-		cout << "Edytowano";
+		cout << "Edytowano pozycje.";
 	}
 	else
 	{
-		cout << "Cos jeblo";
+		cout << "Blad podczas edytowania pozycji.";
 	}
 }
 
@@ -84,11 +84,11 @@ void PositionView::Delete()
 	cin >> newPositionName;
 	if (positionService.Delete(newPositionName))
 	{
-		cout << "Usunieto";
+		cout << "Usunieto pozycje.";
 	}
 	else
 	{
-		cout << "Cos jeblo";
+		cout << "Blad podczas usuwania pozycji";
 	}
 }
 

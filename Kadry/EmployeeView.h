@@ -3,13 +3,13 @@
 #include "EmployeeService.h"
 #include "ScheduleService.h"
 #include "BaseView.h"
+#include "PositionView.h"
 class EmployeeView : public BaseView
 {
 public:
 	EmployeeView();
 	~EmployeeView();
 	void Menu();
-	void PrintEmployeeDetails ();
 	void AddEmployee();
 	void EditEmployee();
 	void DeleteEmployee();
@@ -19,5 +19,6 @@ public:
 private:
 	EmployeeService employeeService;
 	ScheduleService scheduleService;
+	PositionView positionView;
 };
 

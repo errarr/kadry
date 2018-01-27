@@ -12,36 +12,28 @@ EmployeeService::~EmployeeService()
 }
 
 
-int EmployeeService::AddEmployee(
-	string name,
-	string surname,
-	float hourlyRate,
-	int holidays,
-	Address address,
-	Position position)
+int EmployeeService::AddEmployee(string name, string surname, float hourlyRate, int holidays, Address address, Position position)
 {
 	try
 	{
-	 return employeeRepository.AddEmployee(name,
-			surname,
-			hourlyRate,
-			holidays,
-			address.GetTown(),
-			address.GetStreet(),
-			address.GetPostalCode(),
-			address.GetBuildingNumber(),
-			address.GetPhoneNumber(),
-			position.GetName());
+	 return employeeRepository.AddEmployee(name, surname, hourlyRate, holidays, address.GetTown(), address.GetStreet(), address.GetPostalCode(), address.GetBuildingNumber(), address.GetPhoneNumber(), position.GetName());
 	}
 	catch (const std::exception& ex)
 	{
 		return -1;
 	}
 }
-//TODO do przemyslenia
-bool EmployeeService::EditEmployee(int employeeId)
+
+bool EmployeeService::EditEmployee(int employeeId, string name, string surname, float hourlyRate, int holidays, Address address, Position position)
 {
-	return false;
+	try
+	{
+		return employeeRepository.EditEmployee(employeeId, name, surname, hourlyRate, holidays, address.GetTown(), address.GetStreet(), address.GetPostalCode(), address.GetBuildingNumber(), address.GetPhoneNumber(), position.GetName());
+	}
+	catch (const std::exception& ex)
+	{
+		return false;
+	}
 }
 
 bool EmployeeService::DeactivateEmployee(int employeeId)

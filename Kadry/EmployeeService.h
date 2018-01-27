@@ -17,15 +17,8 @@ class EmployeeService
 public:
 	EmployeeService();
 	~EmployeeService();
-	//TODO employee + address parametry
-	int AddEmployee(
-		string name,
-		string surname,
-		float hourlyRate,
-		int holidays,
-		Address address,
-		Position position); //-1 jesli zle
-	bool EditEmployee(int employeeId);
+	int AddEmployee(string name, string surname, float hourlyRate, int holidays, Address address, Position position); 
+	bool EditEmployee(int employeeId, string name, string surname, float hourlyRate, int holidays, Address address, Position position);
 	bool DeactivateEmployee(int employeeId);
 	vector<Employee> GetAllEmployees();
 	float CalculateSummaricSalary(string dateFrom, string dateTo);
