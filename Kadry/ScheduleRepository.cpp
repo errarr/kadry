@@ -23,7 +23,7 @@ vector<vector<string>> ScheduleRepository::GetSchedule(string date)
 
 void ScheduleRepository::AddEmployeeToSchedule(int employeeId, string date, DayType dayType)
 {
-	const string query = "START TRANSACTION; SET @SCHEDULEDATE:=(STR_TO_DATE('"+date+"', '%d-%m-%Y')); INSERT IGNORE INTO `kadry`.`schedules` (`schedules`.`date`) VALUES (@SCHEDULEDATE); SET @SCHEDULEDAY:=(SELECT `idschedules` FROM `schedules` WHERE  `kadry`.`schedules`.`date` = @SCHEDULEDATE); INSERT INTO `kadry`.`employeeschedule` (`idemployees`, `idschedules`, `daytype`) VALUES ('"+ ConversionHelper::IntToString(employeeId) +"', @SCHEDULEDAY, '"+ ConversionHelper::IntToString((int)dayType)+"'); COMMIT;";
+	const string query = "START TRANSACTION; SET @SCHEDULEDATE:=(STR_TO_DATE('"+date+"', '%d-%m-%Y')); INSERT IGNORE INTO `kadry`.`schedules` (`schedules`.`date`) VALUES (@SCHEDULEDATE); SET @SCHEDULEDAY:=(SELECT `idschedules` FROM `schedules` WHERE  `kadry`.`schedules`.`date` = @SCHEDULEDATE); INSERT INTO `kadry`.`employeeschedule` (`idemployees`, `idschedules`, `daytype`) VALUES ("+ ConversionHelper::IntToString(employeeId) +", @SCHEDULEDAY, "+ ConversionHelper::IntToString((int)dayType)+"); COMMIT;";
 	ConnectDB();
 	ExecuteQueryDB(query);
 	DisconnectDB();

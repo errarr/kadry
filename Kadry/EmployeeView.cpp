@@ -81,11 +81,11 @@ void EmployeeView::AddEmployee()
 
 	cout << "Wybierz stanowisko. Oto dostepne mozliwosci: \n";
 	positionView.PrintAllPositions();
-	cout << "Stanowisko: ";
+	cout << "\nStanowisko: ";
 	cin >> positionName;
 	position.SetName(positionName);
 
-	cout << "Podaj adres pracownika.\n Ulica: ";
+	cout << "Podaj adres pracownika.\n\nUlica: ";
 	cin >> street;
 	cout << "Numer budynku/mieszkania: ";
 	cin >> buildingNumber;
@@ -93,7 +93,7 @@ void EmployeeView::AddEmployee()
 	cin >> postalCode;
 	cout << "Miasto: ";
 	cin >> town;
-	cout << "Numer telefonu";
+	cout << "Numer telefonu: ";
 	cin >> phoneNumber;
 	address.SetStreet(street);
 	address.SetBuildingNumber(buildingNumber);

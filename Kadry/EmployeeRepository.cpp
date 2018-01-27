@@ -36,15 +36,15 @@ int EmployeeRepository::AddEmployee(
 	string phoneNumber,
 	string positionName)
 {
-	const string queryAddEmployee = "START TRANSACTION; SET @IDPOSITIONS:= (SELECT idpositions FROM kadry.positions where name = '" 
+	const string queryAddEmployee = "START TRANSACTION; SET @IDPOSITIONS:=(SELECT idpositions FROM kadry.positions where name = '" 
 		+ positionName
-		+"'); INSERT INTO `kadry`.`employees` (`name`, `surname`, `hourlyrate`, `holidays`, `idpositions`)	VALUES('" 
+		+"'); INSERT INTO `kadry`.`employees` (`name`, `surname`, `hourlyrate`, `holidays`, `idpositions`) VALUES('" 
 		+ name + "', '" 
 		+ surname + "', " 
 		+ ConversionHelper::FloatToString(hourlyRate) 
 		+ ", " 
 		+ ConversionHelper::IntToString(holidays) 
-		+ ", @IDPOSITIONS); SET @NEWESTEMPLOYEEID: = (SELECT MAX(idemployees) FROM employees); INSERT INTO `kadry`.`adresses` (`town`, `postalcode`, `street`, `buildingnumber`, `phonenumber`, `idemployees`) VALUES('" 
+		+ ", @IDPOSITIONS); SET @NEWESTEMPLOYEEID:=(SELECT MAX(idemployees) FROM employees); INSERT INTO `kadry`.`adresses` (`town`, `postalcode`, `street`, `buildingnumber`, `phonenumber`, `idemployees`) VALUES ('" 
 		+ town 
 		+ "', '" 
 		+ postalCode 
@@ -52,9 +52,9 @@ int EmployeeRepository::AddEmployee(
 		+ street 
 		+ "', '" 
 		+ buildingNumber 
-		+ "', " 
+		+ "', '" 
 		+ phoneNumber 
-		+ ", @NEWESTEMPLOYEEID);SELECT @NEWESTEMPLOYEEID;COMMIT;";
+		+ "', @NEWESTEMPLOYEEID);SELECT @NEWESTEMPLOYEEID;COMMIT;";
 
 	ConnectDB();
 	string employeeId = ExecuteQueryDB(queryAddEmployee)[0][0];
@@ -64,7 +64,7 @@ int EmployeeRepository::AddEmployee(
 
 bool EmployeeRepository::EditEmployee(int employeeId, string name, string surname, float hourlyRate, int holidays, string town, string street, string postalCode, string buildingNumber, string phoneNumber, string position)
 {
-	const string queryAddEmployee = "START TRANSACTION; SET @IDPOSITIONS: = (SELECT idpositions FROM kadry.positions where name = '"+position+"'); UPDATE `kadry`.`employees` SET `name` = '"+name+"', `surname` = '"+surname+"', `hourlyrate` = '"+ConversionHelper::FloatToString(hourlyRate)+"', `holidays`='"+ ConversionHelper::IntToString(holidays)+"', `idpositions` = @IDPOSITIONS WHERE idemployees = "+ ConversionHelper::IntToString(employeeId)+"; UPDATE `kadry`.`adresses` SET `town` = '"+town+"', `postalcode` = '"+postalCode+"', `street`='"+street+"', `buildingnumber`='"+buildingNumber+"', `phonenumber`='"+phoneNumber+"' WHERE idemployees = "+ ConversionHelper::IntToString(employeeId)+"; COMMIT;";
+	const string queryAddEmployee = "START TRANSACTION; SET @IDPOSITIONS:=(SELECT idpositions FROM kadry.positions where name = '"+position+"'); UPDATE `kadry`.`employees` SET `name` = '"+name+"', `surname` = '"+surname+"', `hourlyrate` = "+ConversionHelper::FloatToString(hourlyRate)+", `holidays`="+ ConversionHelper::IntToString(holidays)+", `idpositions`=@IDPOSITIONS WHERE idemployees = "+ ConversionHelper::IntToString(employeeId)+"; UPDATE `kadry`.`adresses` SET `town` = '"+town+"', `postalcode` = '"+postalCode+"', `street`='"+street+"', `buildingnumber`='"+buildingNumber+"', `phonenumber`='"+phoneNumber+"' WHERE idemployees = "+ConversionHelper::IntToString(employeeId)+"; COMMIT;";
 
 	ConnectDB();
 	ExecuteQueryDB(queryAddEmployee)[0][0];
